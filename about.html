@@ -35,7 +35,7 @@
     }
 
     .page {
-      width: min(92vw, 820px);
+      width: min(92vw, 920px);
       padding: 2rem;
       text-align: center;
       position: relative;
@@ -159,6 +159,50 @@
       padding: 0.5rem 0;
     }
 
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin: 2rem auto 0;
+      max-width: 46rem;
+    }
+
+    .gallery-item {
+      min-height: 10rem;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      text-align: left;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(135deg, rgba(71, 245, 201, 0.34), rgba(255, 209, 102, 0.18));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    }
+
+    .gallery-item::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 22%, rgba(255, 255, 255, 0.52), transparent 0.95rem), linear-gradient(160deg, transparent 0%, rgba(0, 0, 0, 0.35) 100%);
+    }
+
+    .gallery-item:nth-child(2) { background: linear-gradient(135deg, rgba(255, 111, 145, 0.36), rgba(116, 192, 252, 0.2)); }
+    .gallery-item:nth-child(3) { background: linear-gradient(135deg, rgba(255, 209, 102, 0.34), rgba(71, 245, 201, 0.18)); }
+    .gallery-item:nth-child(4) { background: linear-gradient(135deg, rgba(116, 192, 252, 0.38), rgba(255, 111, 145, 0.2)); }
+    .gallery-item:nth-child(5) { background: linear-gradient(135deg, rgba(71, 245, 201, 0.28), rgba(116, 192, 252, 0.22)); }
+    .gallery-item:nth-child(6) { background: linear-gradient(135deg, rgba(255, 111, 145, 0.32), rgba(255, 209, 102, 0.22)); }
+
+    .gallery-item span {
+      position: relative;
+      z-index: 1;
+      font-weight: 800;
+      color: var(--ink);
+      text-shadow: 0 1px 18px rgba(0, 0, 0, 0.45);
+    }
+
     .dot {
       width: 0.65rem;
       height: 0.65rem;
@@ -172,11 +216,16 @@
       50% { transform: translateY(-12px) rotate(8deg); }
     }
 
+    @media (max-width: 720px) {
+      .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
     @media (max-width: 520px) {
       .page { padding: 1.2rem; }
       .page::before { inset: 0.35rem; }
       nav { margin-bottom: 2.2rem; }
       nav a { min-width: 5.75rem; }
+      .gallery-grid { grid-template-columns: 1fr; }
     }
 
   </style>
@@ -186,11 +235,12 @@
     <nav aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a class="active" href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="spark" aria-hidden="true"><span>A</span></div>
     <h1>About <span>This Page</span></h1>
-    <p>This little site is built as a bright, polished starter: simple HTML, smooth styling, and three pages that feel like they belong together.</p>
+    <p>This little site is built as a bright, polished starter: simple HTML, smooth styling, and four pages that feel like they belong together.</p>
     <div class="shine"><span class="dot"></span>Made with plain HTML and CSS</div>
   </main>
 </body>
